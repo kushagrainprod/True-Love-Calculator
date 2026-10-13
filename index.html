@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Love Percentage Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="hearts" aria-hidden="true"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <main>
+    <!-- 1. LANDING -->
+    <section id="landing" class="screen active">
+      <h1>How Much Do You Two Match? ❤️</h1>
+      <p class="sub">Enter the details and let destiny calculate your love percentage…</p>
+      <div class="big-heart" aria-hidden="true">❤️</div>
+      <p class="small">Is it love, friendship, or just a little crush? 👀</p>
+      <button class="btn" id="startBtn">Calculate Our Love ❤️</button>
+    </section>
+
+    <!-- 2. FORM -->
+    <section id="formScreen" class="screen">
+      <form id="loveForm" novalidate>
+        <div class="card">
+          <h2>About You 💕</h2>
+          <label for="name1">Your Name</label>
+          <input id="name1" type="text" placeholder="Enter your name" maxlength="40" autocomplete="off" required>
+
+          <fieldset>
+            <legend>Your Gender</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="g1" value="Male"><span>Male</span></label>
+              <label class="choice"><input type="radio" name="g1" value="Female"><span>Female</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>What is this person to you?</legend>
+            <div class="choices three">
+              <label class="choice"><input type="radio" name="rel" value="Crush"><span>Crush ❤️</span></label>
+              <label class="choice"><input type="radio" name="rel" value="Girlfriend"><span>Girlfriend 💕</span></label>
+              <label class="choice"><input type="radio" name="rel" value="Boyfriend"><span>Boyfriend 💕</span></label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="link" aria-hidden="true">💗</div>
+
+        <div class="card">
+          <h2>Now tell us about them 👀</h2>
+          <label for="name2">Their Name</label>
+          <input id="name2" type="text" placeholder="Enter their name" maxlength="40" autocomplete="off" required>
+
+          <fieldset>
+            <legend>Their Gender</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="g2" value="Male"><span>Male</span></label>
+              <label class="choice"><input type="radio" name="g2" value="Female"><span>Female</span></label>
+            </div>
+          </fieldset>
+
+          <label class="consent">
+            <input type="checkbox" id="consent">
+            <span>I understand the details are correct for calculation.</span>
+          </label>
+        </div>
+
+        <p id="error" class="error" role="alert" aria-live="polite"></p>
+        <button class="btn" id="calcBtn" type="submit" disabled>Calculate Our Love ❤️</button>
+      </form>
+    </section>
+
+    <!-- 3. LOADING -->
+    <section id="loading" class="screen">
+      <div class="loader">
+        <div class="ring"></div>
+        <div class="big-heart" aria-hidden="true">💗</div>
+      </div>
+      <p id="loadMsg" class="msg" aria-live="polite"></p>
+    </section>
+
+    <!-- 4. RESULT -->
+    <section id="result" class="screen">
+      <div class="card center">
+        <p id="names" class="names"></p>
+        <div class="big-heart" aria-hidden="true">❤️</div>
+        <p class="pct"><span id="pct">0</span>% LOVE MATCH ❤️</p>
+        <p id="verdict" class="msg"></p>
+      </div>
+    </section>
+
+    <!-- 5. SUSPENSE -->
+    <section id="suspense" class="screen">
+      <p id="suspenseMsg" class="msg huge" aria-live="polite"></p>
+    </section>
+
+    <!-- 6. REVEAL -->
+    <section id="reveal" class="screen">
+      <p id="revealMsg" class="huge pop"></p>
+      <div id="revealSub"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
